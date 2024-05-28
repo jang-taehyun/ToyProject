@@ -9,7 +9,7 @@
 #include <mysql/mysql.h>
 #include <netdb.h>
 #define BUF_SIZE 1024
-#define CONNECT_ABLE 50
+#define CONNECT_ABLE 40
 
 void ErrorHandling(const char* message)
 {
