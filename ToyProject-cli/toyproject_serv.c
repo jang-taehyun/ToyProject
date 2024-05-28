@@ -37,32 +37,20 @@ int main(int argc, char* argv[])
 
         MYSQL_RES *res;
         MYSQL_ROW row;
-	MYSQL *con = mysql_init(NULL);
+	    MYSQL *con = mysql_init(NULL);
 
-  	if (con == NULL)
-  	{
-      		fprintf(stderr, "%s\n", mysql_error(con));
-      		exit(1);
-  	}
+  	    if (con == NULL)
+    	{
+        		fprintf(stderr, "%s\n", mysql_error(con));
+       		exit(1);
+    	}
 
-  	if (mysql_real_connect(con, "localhost", "root", "test123", NULL, 0, NULL, 0) == NULL)
-  	{
-      		fprintf(stderr, "%s\n", mysql_error(con));
-      		mysql_close(con);
-      		exit(1);
-  	}
-
-  	if (mysql_query(con, "CREATE DATABASE testdb"))
-  	{
-      		fprintf(stderr, "%s\n", mysql_error(con));
-      		mysql_close(con);
-      		exit(1);
-  	}
-
-  	mysql_close(con);
-
-        return 0;
-
+  	    if (mysql_real_connect(con, "localhost", "root", "test123", NULL, 0, NULL, 0) == NULL)
+    	{
+          		fprintf(stderr, "%s\n", mysql_error(con));
+          		mysql_close(con);
+          		exit(1);
+  	    }
 
         for(int i=0; i<CONNECT_ABLE; i++)
         {
@@ -146,6 +134,8 @@ int main(int argc, char* argv[])
                                 }
                                 else
                                 {
+                                    memeset(buf, 0, sizeof(buf));
+
                                         StringLength = read(i, buf, BUF_SIZE);
                                         if(-1 == StringLength)
                                                 ErrorHandling("read() error");
@@ -169,6 +159,16 @@ int main(int argc, char* argv[])
                                         }
                                         else
                                         {
+                                            char query[2048] = "INSERT INTO tmp VALUES('";
+                                            char adder[] = "')";
+                                            strncpy(query, buf, strlen(buf));
+                                            strncpy(query, adder, strlen(adder));
+
+                                                if (mysql_query(con, query)) {
+                                                    puts("failed to store data");
+                                                    finish_with_error(con);
+                                                }
+
                                                 for(int j=0; j<CONNECT_ABLE; j++)
                                                 {
                                                         if(ClientGroup[j] != -1)
@@ -186,6 +186,7 @@ int main(int argc, char* argv[])
         }
 
         close(ServerSocket);
+        mysql_close(con);
 
         return 0;
 }
