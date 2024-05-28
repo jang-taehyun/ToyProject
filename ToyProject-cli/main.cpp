@@ -1,11 +1,13 @@
 #include "header.h"
 #include <thread>
 
-char buf[BUF_SIZE];
 bool IsFinish = false;
 
 void InputData()
 {
+	char buf[BUF_SIZE];
+	memset(buf, 0, sizeof(buf));
+
 	fputs("Insert message(q to quit)\n", stdout);
 
 	while (1)

@@ -33,7 +33,7 @@ bool SocketClass::init()
 
 	memset(&ServerAddress, 0, sizeof(ServerAddress));
 	ServerAddress.sin_family = AF_INET;
-	ServerAddress.sin_addr.s_addr = inet_addr("211.183.3.100");
+	ServerAddress.sin_addr.s_addr = inet_addr("43.203.173.5");
 	ServerAddress.sin_port = htons(3828);
 
 	FunctionResult = connect(ConnectSocket, (SOCKADDR*)&ServerAddress, sizeof(ServerAddress));
