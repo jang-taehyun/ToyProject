@@ -43,12 +43,6 @@ int main(int argc, char* argv[])
         int FunctionResult;
         int ClientGroup[CONNECT_ABLE];
 
-        struct hostent* host;
-
-        host = gethostbyname("internal-db-alb-680343291.ap-northeast-2.elb.amazonaws.com");
-        if (!host)
-            ErrorHandling("gethost...error");
-
         MYSQL_RES *res;
         MYSQL_ROW row;
 	    MYSQL *con = mysql_init(NULL);
@@ -59,7 +53,7 @@ int main(int argc, char* argv[])
        		exit(1);
     	}
 
-  	    if (mysql_real_connect(con, inet_ntoa(*(struct in_addr*)host->h_addr_list[0]), "tmpuser", "test123", "tmp", 0, NULL, 0) == NULL)
+  	    if (mysql_real_connect(con, "10.10.3.218", "tmpuser", "test123", "tmp", 0, NULL, 0) == NULL)
     	{
           		fprintf(stderr, "%s\n", mysql_error(con));
           		mysql_close(con);
@@ -67,11 +61,7 @@ int main(int argc, char* argv[])
   	    }
 
         for(int i=0; i<CONNECT_ABLE; i++)
-        {
-                ClientGroup[i] = -1;
-        }
-
-        
+                ClientGroup[i] = -1;   
 
         ServerSocket = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
         if(-1 == ServerSocket)
