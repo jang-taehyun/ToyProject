@@ -168,8 +168,8 @@ int main(int argc, char* argv[])
                                         {
                                             char query[2048] = "INSERT INTO tmp VALUES('";
                                             char adder[] = "')";
-                                            strncpy(query, buf, strlen(buf));
-                                            strncpy(query, adder, strlen(adder));
+                                            strcat(query, buf);
+                                            strcat(query, adder);
 
                                                 if (mysql_query(con, query)) {
                                                     puts("failed to store data");
