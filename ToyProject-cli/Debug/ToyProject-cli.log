@@ -1,5 +1,5 @@
 ﻿  SocketClass.cpp
-C:\Users\USER\source\repos\ToyProject-cli\ToyProject-cli\SocketClass.cpp(85,6): warning C4101: 'FunctionResult': unreferenced local variable
-C:\Users\USER\source\repos\ToyProject-cli\ToyProject-cli\SocketClass.cpp(122,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-C:\Users\USER\source\repos\ToyProject-cli\ToyProject-cli\SocketClass.cpp(105,6): warning C4101: 'FunctionResult': unreferenced local variable
+C:\Users\USER\source\repos\ToyProject-cli\ToyProject-cli\SocketClass.cpp(91,6): warning C4101: 'FunctionResult': unreferenced local variable
+C:\Users\USER\source\repos\ToyProject-cli\ToyProject-cli\SocketClass.cpp(128,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\Users\USER\source\repos\ToyProject-cli\ToyProject-cli\SocketClass.cpp(111,6): warning C4101: 'FunctionResult': unreferenced local variable
   ToyProject-cli.vcxproj -> C:\Users\USER\source\repos\ToyProject-cli\Debug\ToyProject-cli.exe

@@ -11,6 +11,12 @@ SocketClass::~SocketClass() { }
 bool SocketClass::init()
 {
 	int FunctionResult;
+	struct hostent* host;
+
+	host = gethostbyname("serv-alb-928864148.ap-northeast-2.elb.amazonaws.com");
+	if (!host)
+		return false;
+
 
 	FunctionResult = WSAStartup(MAKEWORD(2, 2), &wsaData);
 	if (FunctionResult)
@@ -33,7 +39,7 @@ bool SocketClass::init()
 
 	memset(&ServerAddress, 0, sizeof(ServerAddress));
 	ServerAddress.sin_family = AF_INET;
-	ServerAddress.sin_addr.s_addr = inet_addr("43.203.173.5");
+	ServerAddress.sin_addr.s_addr = inet_addr(inet_ntoa(*(struct in_addr*)host->h_addr_list[0]));
 	ServerAddress.sin_port = htons(3828);
 
 	FunctionResult = connect(ConnectSocket, (SOCKADDR*)&ServerAddress, sizeof(ServerAddress));
