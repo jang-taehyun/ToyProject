@@ -166,7 +166,7 @@ int main(int argc, char* argv[])
                                         }
                                         else
                                         {
-                                            char query[2048] = "INSERT INTO tmp VALUES('";
+                                            char query[2048] = "INSERT INTO message VALUES('";
                                             char adder[] = "')";
                                             strcat(query, buf);
                                             strcat(query, adder);
