@@ -17,6 +17,13 @@ void ErrorHandling(const char* message)
         exit(1);
 }
 
+void finish_with_error(MYSQL* con)
+{
+    fprintf(stderr, "%s\n", mysql_error(con));
+    mysql_close(con);
+    exit(1);
+}
+
 int main(int argc, char* argv[])
 {
         int ServerSocket, ClientSocket;
@@ -134,7 +141,7 @@ int main(int argc, char* argv[])
                                 }
                                 else
                                 {
-                                    memeset(buf, 0, sizeof(buf));
+                                    memset(buf, 0, sizeof(buf));
 
                                         StringLength = read(i, buf, BUF_SIZE);
                                         if(-1 == StringLength)
