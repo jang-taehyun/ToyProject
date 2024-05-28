@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
 
   	    if (con == NULL)
     	{
-        		fprintf(stderr, "%s\n", mysql_error(con));
+        	fprintf(stderr, "%s\n", mysql_error(con));
        		exit(1);
     	}
 
@@ -61,7 +61,9 @@ int main(int argc, char* argv[])
   	    }
 
         for(int i=0; i<CONNECT_ABLE; i++)
-                ClientGroup[i] = -1;   
+        {
+                ClientGroup[i] = -1;
+        }
 
         ServerSocket = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
         if(-1 == ServerSocket)
@@ -99,10 +101,8 @@ int main(int argc, char* argv[])
                         break;
                 }
 
-                if(0 == SelectResult)
-                {
-                        continue;
-                }
+                if (0 == SelectResult)
+                    continue;
 
                 for(int i=0; i<FileDescriptorMax+1; i++)
 		{
