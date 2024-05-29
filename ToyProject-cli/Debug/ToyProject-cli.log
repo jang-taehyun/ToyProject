@@ -1,6 +1,12 @@
-﻿  SocketClass.cpp
+﻿  main.cpp
+C:\Users\USER\source\repos\ToyProject-cli\ToyProject-cli\main.cpp(54,21): warning C4018: '<': signed/unsigned mismatch
+C:\Users\USER\source\repos\ToyProject-cli\ToyProject-cli\main.cpp(76,6): warning C4101: 'StringLength': unreferenced local variable
+  SocketClass.cpp
 C:\Users\USER\source\repos\ToyProject-cli\ToyProject-cli\SocketClass.cpp(14,18): warning C4101: 'host': unreferenced local variable
 C:\Users\USER\source\repos\ToyProject-cli\ToyProject-cli\SocketClass.cpp(86,6): warning C4101: 'FunctionResult': unreferenced local variable
 C:\Users\USER\source\repos\ToyProject-cli\ToyProject-cli\SocketClass.cpp(123,2): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
 C:\Users\USER\source\repos\ToyProject-cli\ToyProject-cli\SocketClass.cpp(106,6): warning C4101: 'FunctionResult': unreferenced local variable
+  SocketClass.h
+  Generating Code...
+Debug\SocketClass.obj : warning LNK4042: object specified more than once; extras ignored
   ToyProject-cli.vcxproj -> C:\Users\USER\source\repos\ToyProject-cli\Debug\ToyProject-cli.exe
