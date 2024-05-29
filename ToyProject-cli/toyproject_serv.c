@@ -53,7 +53,7 @@ int main(int argc, char* argv[])
        		exit(1);
     	}
 
-  	    if (mysql_real_connect(con, "10.10.3.218", "tmpuser", "test123", "tmp", 0, NULL, 0) == NULL)
+  	    if (mysql_real_connect(con, "10.10.2.251", "tmpuser", "test123", "tmp", 0, NULL, 0) == NULL)
     	{
           		fprintf(stderr, "%s\n", mysql_error(con));
           		mysql_close(con);
